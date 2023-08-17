@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className="flex-shrink-0">
               <span className="text-white font-bold text-lg">
                 <a href="/" className="text-white font-bold text-lg">
-                  Name
+                  South Spice Delights
                 </a>
               </span>
             </div>
