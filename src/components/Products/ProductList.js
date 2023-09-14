@@ -5,9 +5,17 @@ function ProductList() {
   console.log("ProductList component rendered");
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [cart, setCart] = useState([]);
+
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
   };
+
+  const handleAddToCart = (product) => {
+    // Add the selected product to the cart
+    setCart([...cart, product]);
+  };
+
   const filteredProducts =
     selectedCategory === "All"
       ? products
@@ -35,29 +43,30 @@ function ProductList() {
   return (
     <div>
       <Categories onSelectCategory={handleCategorySelect} />
-      <div className="flex flex-wrap -mx-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 ml-3">
         {filteredProducts.map((product) => (
           <div
             key={product._id}
-            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-4"
+            className="bg-white rounded-lg shadow-md overflow-hidden"
           >
-            <div className="relative flex flex-col bg-pink-100 z-20 md:p-3 p-4 ml-8 rounded-md shadow-lg">
-              <div className="mt-1">
-                <h3 className="font-medium capitalize">{product.title}</h3>
-              </div>
-              <img
-                src={`http://localhost:3002/images/${product.image}`}
-                height={200}
-                width={200}
-                alt=""
-                className="cursor-pointer w-50 h-60 object-cover rounded-lg"
-              />
-
-              <p className="text-xs mt-2 mb-2 line-clamp-2 text-gray-500 link">
+            <img
+              src={`http://localhost:3002/images/${product.image}`}
+              alt=""
+              className="w-full h-48 object-cover md:h-64"
+            />
+            <div className="p-4">
+              <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
+              <p className="text-sm text-gray-500 mb-4 line-clamp-2">
                 {product.description}
               </p>
-              <div className="mb-5 mt-2 font-bold text-gray-700 flex items-center justify-between">
-                <span className="mr-2">€{product.price}</span>
+              <div className="flex ml-4 justify-between items-center">
+                <p className="text-lg font-bold text-black">€{product.price}</p>
+                <button
+                  onClick={() => handleAddToCart(product)}
+                  className="bg-blue-300 text-white px-3 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
           </div>
