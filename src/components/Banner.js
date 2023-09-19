@@ -18,12 +18,12 @@ const Banner = ({ backgroundImage }) => {
         <p className="text-lg md:text-xl text-center">
           Experience the Authentic Flavors of South Indian Cuisine
         </p>
-        <a
+        {/* <a
           href="/menu"
           className="mt-6 bg-pink-500 hover:bg-blue-400 px-5 py-2 rounded-xl text-lg font-semibold transition duration-300 ease-in-out"
         >
           View Menu
-        </a>
+        </a> */}
       </div>
     </div>
   );

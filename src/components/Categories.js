@@ -17,9 +17,9 @@ function Categories({ onSelectCategory }) {
           key={category}
           className={`${
             selectedCategory === category
-              ? "bg-blue-300 text-white"
-              : "bg-gray-300 text-gray-700"
-          } px-4 mx-4 mb-4 mt-6 py-2 rounded-md focus:outline-none`}
+              ? "bg-green-200 text-black"
+              : "bg-gray-100 text-gray-700"
+          } px-4 mx-2 mb-4 mt-6 py-1 rounded-md focus:outline-none`}
           onClick={() => handleCategoryClick(category)}
         >
           {category}
