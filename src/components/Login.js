@@ -35,7 +35,7 @@ function Login() {
 
   return (
     <div
-      className="flex justify-center items-center min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+      className=" fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
       style={{ backgroundImage: "url('foods.jpg')" }}
     >
       <div className="wrapper bg-transparent border-2 border-white bg-opacity-20 backdrop-blur-md shadow-md text-white rounded-2xl p-4 sm:p-8 w-80 sm:w-96 md:w-120 lg:w-144">
