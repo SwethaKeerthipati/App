@@ -10,8 +10,34 @@ function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    //   try {
+    //     const response = await fetch("/api/user/signup", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({ name, email, password, dateOfBirth }),
+    //     });
+
+    //     if (response.ok) {
+    //       const userData = await response.json();
+    //       // Handle successful signup, e.g., redirect to login page or display a success message
+    //       console.log("Signup successful");
+    //       console.log("User data:", userData);
+    //     } else {
+    //       const errorData = await response.json();
+    //       // Handle signup failure, e.g., display an error message to the user
+    //       console.error("Signup failed");
+    //       console.error("Error data:", errorData);
+    //     }
+    //   } catch (error) {
+    //     console.error("An error occurred during signup:", error);
+    //   }
+    // };
+    // ...
+
     try {
-      const response = await fetch("/api/user/signup", {
+      const response = await fetch("http://localhost:3002/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -21,14 +47,12 @@ function Signup() {
 
       if (response.ok) {
         const userData = await response.json();
-        // Handle successful signup, e.g., redirect to login page or display a success message
         console.log("Signup successful");
         console.log("User data:", userData);
       } else {
-        const errorData = await response.json();
-        // Handle signup failure, e.g., display an error message to the user
+        const errorText = await response.text(); // Read the response as plain text
         console.error("Signup failed");
-        console.error("Error data:", errorData);
+        console.error("Error text:", errorText);
       }
     } catch (error) {
       console.error("An error occurred during signup:", error);
